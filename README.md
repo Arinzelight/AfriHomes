@@ -42,6 +42,7 @@ The project is divided into two major folders:
 - `client`: Contains the frontend code
 - `api`: Contains the backend code
 
+```
 AfriHomes/
 │
 ├── client/
@@ -64,6 +65,7 @@ AfriHomes/
 ├── server.js
 ├── .env
 └── package.json
+```
 
 ## Installation
 
