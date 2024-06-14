@@ -100,20 +100,19 @@ npm run dev
 
 1. Navigate to the api directory:
 
-```cd api
-
-```
+`cd api`
 
 2. Create a .env file and add your MongoDB URI and other environment variables:
 
-```MONGODB_URI=your_mongodb_uri
+```
+MONGODB_URI=your_mongodb_uri
 PORT=5000
 JWT_SECRET=your_jwt_secret
 ```
 
 3. Start the backend server:
 
-`npm start`
+`npm run dev`
 
 ## API Endpoints:
 
