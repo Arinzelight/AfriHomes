@@ -106,13 +106,14 @@ npm run dev
 
 2. Create a .env file and add your MongoDB URI and other environment variables:
 
-````MONGODB_URI=your_mongodb_uri
+```MONGODB_URI=your_mongodb_uri
 PORT=5000
-JWT_SECRET=your_jwt_secret```
+JWT_SECRET=your_jwt_secret
+```
 
 3. Start the backend server:
 
-```npm start```
+`npm start`
 
 ## API Endpoints:
 
@@ -130,5 +131,3 @@ Here are some of the main API endpoints:
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
-
-````
