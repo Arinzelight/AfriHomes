@@ -61,3 +61,42 @@ export const getProperties = async (req, res, next) => {
     next(error);
   }
 };
+
+export const searchProperties = async (req, res, next) => {
+  try {
+    const {
+      name,
+      location,
+      minPrice,
+      maxPrice,
+      page = 1,
+      limit = 10,
+    } = req.query;
+    const query = {};
+
+    if (name) {
+      query.name = { $regex: name, $options: "i" };
+    }
+    if (location) {
+      query.location = { $regex: location, $options: "i" };
+    }
+    if (minPrice) {
+      query.price = { ...query.price, $gte: Number(minPrice) };
+    }
+    if (maxPrice) {
+      query.price = { ...query.price, $lte: Number(maxPrice) };
+    }
+
+    const options = {
+      page: parseInt(page, 10),
+      limit: parseInt(limit, 10),
+      lean: true,
+    };
+
+    const properties = await Property.paginate(query, options);
+
+    res.status(200).json(properties);
+  } catch (error) {
+    next(error);
+  }
+};
