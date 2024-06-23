@@ -3,6 +3,7 @@ import Hero from '../components/Hero';
 import AboutUs from '../components/AboutUs';
 import GoogleMapComponent from "../components/GoogleMap";
 import Experience from '../components/Experience';
+import DreamSpace from "../components/DreamSpace";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <AboutUs />
       <GoogleMapComponent />
       <Experience />
+      <DreamSpace />
     </div>
   );
 };
