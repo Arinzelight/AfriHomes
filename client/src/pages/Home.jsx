@@ -5,6 +5,7 @@ import GoogleMapComponent from "../components/GoogleMap";
 import Experience from '../components/Experience';
 import DreamSpace from "../components/DreamSpace";
 import RecentUploads from "../components/RecentUploads";
+import AfriHomeForm from "../components/AfriHomeForm";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <Experience />
       <DreamSpace />
       <RecentUploads />
+      <AfriHomeForm />
     </div>
   );
 };
