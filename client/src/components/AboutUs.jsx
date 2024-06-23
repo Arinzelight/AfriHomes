@@ -16,11 +16,11 @@ const AboutUs = () => {
                     <img src={logo} alt="AfriHomes Logo" className="h-48 w-48 object-cover" />
                 </div>
                 {/* Second column: Text and button */}
-                <div className="flex flex-col justify-center items-start w-1/2 p-8 about">
+                <div className="flex flex-col justify-center items-center w-1/2 p-8 about">
                     <p className="mb-4 text-lg">We recognize the pain of using a renting platform with no location attached. 
                     We have therefore decided to add a map feature tailored to ensure your safety as 
                     you hunt your next space you will call home.</p>
-                    <button className="text-white font-bold py-2 px-4 joinAbout-btn">Join / Sign In</button>
+                    <button className="text-white font-bold joinAbout-btn">Join / Sign In</button>
                 </div>
             </div>
         </div>
