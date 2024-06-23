@@ -6,6 +6,7 @@ import Experience from '../components/Experience';
 import DreamSpace from "../components/DreamSpace";
 import RecentUploads from "../components/RecentUploads";
 import AfriHomeForm from "../components/AfriHomeForm";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <DreamSpace />
       <RecentUploads />
       <AfriHomeForm />
+      <Footer />
     </div>
   );
 };

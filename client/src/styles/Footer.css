@@ -1,0 +1,32 @@
+.afriHome-footer {
+    height: 250px;
+}
+
+.footer-divs {
+    padding: 10px;
+    gap: 10px;
+}
+
+.footer-divs .f-divs-1 {
+    display: flex;
+}
+
+.footer-divs .f-divs-1 img {
+    height: 200px;
+    width: 200px;
+    margin-top: -40px;
+    margin-left: 20px;
+}
+
+.afriHome-footer .footer-divs .f-divs-2 .pf-1,
+.afriHome-footer .footer-divs .f-divs-3 .pf-1,
+.afriHome-footer .footer-divs .f-divs-4 .pf-1 {
+    font-weight: bold;
+}
+
+.footer-divs .f-divs-2 .socials .nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+}
