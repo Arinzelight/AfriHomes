@@ -1,5 +1,12 @@
 import React from "react";
+import Hero from '../components/Hero';
 
-export default function Home() {
-  return <div className="text-center text-2xl">Welcom to AfriHome</div>;
-}
+const Home = () => {
+  return (
+    <div>
+      <Hero />
+    </div>
+  );
+};
+
+export default Home;
