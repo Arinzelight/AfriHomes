@@ -120,6 +120,14 @@ const propertySchema = new mongoose.Schema(
       type: Date,
       required: false,
     },
+    latitude: {
+      type: Number,
+      required: true,
+    },
+    longitude: {
+      type: Number,
+      required: true,
+    },
     images: {
       type: [String],
       required: false,
