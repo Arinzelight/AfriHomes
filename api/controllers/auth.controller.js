@@ -14,7 +14,7 @@ export const signup = async (req, res, next) => {
     email === "" ||
     password === ""
   ) {
-    next(errorHandler(400, "All fields are required"));
+    return next(errorHandler(400, "All fields are required"));
   }
 
   const hashedPassword = bcryptjs.hashSync(password, 10);
@@ -29,6 +29,14 @@ export const signup = async (req, res, next) => {
     await newUser.save();
     res.json("Signup successful");
   } catch (error) {
+    if (error.code === 11000) {
+      // Check which field caused the duplicate error
+      if (error.keyValue.username) {
+        return next(errorHandler(400, "Username already exists"));
+      } else if (error.keyValue.email) {
+        return next(errorHandler(400, "Email already exists"));
+      }
+    }
     next(error);
   }
 };
@@ -37,7 +45,7 @@ export const signin = async (req, res, next) => {
   const { email, password } = req.body;
 
   if (!email || !password || email === "" || password === "") {
-    next(errorHandler(400, "All fields are required"));
+    return next(errorHandler(400, "All fields are required"));
   }
 
   try {

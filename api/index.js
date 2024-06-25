@@ -6,6 +6,7 @@ import authRoutes from "./routes/auth.route.js";
 import propertyRoutes from "./routes/property.route.js";
 import cookieParser from "cookie-parser";
 import path from "path";
+import cors from "cors";
 
 dotenv.config();
 
@@ -19,16 +20,15 @@ mongoose
   });
 
 const __dirname = path.resolve();
-
 const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
 
-app.listen(5000, () => {
-  console.log("Server is running on port 5000!");
-});
+// CORS middleware
+app.use(cors());
 
+// Routes
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/property", propertyRoutes);
@@ -47,4 +47,9 @@ app.use((err, req, res, next) => {
     statusCode,
     message,
   });
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
