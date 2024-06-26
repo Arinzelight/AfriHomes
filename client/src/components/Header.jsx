@@ -27,9 +27,9 @@ const Header = () => {
 
                 {/* Navigation */}
                 <div className="hidden lg:flex space-x-4">
-                    <a href="#" className="hover:text-black-500">Buy</a>
-                    <a href="#" className="hover:text-black-500">Sell</a>
-                    <a href="#" className="hover:text-black-500">Rent</a>
+                    <a href="#" className="hover:text-yellow-500">Buy</a>
+                    <a href="#" className="hover:text-yellow-500">Sell</a>
+                    <a href="#" className="hover:text-yellow-500">Rent</a>
                     <button className=" bg-purple-600 text-white py-2 px-4 rounded-lg">Join/Sign In</button>
                 </div>
 
