@@ -9,7 +9,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import OAuth from "../components/OAuth";
 import { PulseLoader } from "react-spinners";
-import background from "../assets/images/background.jpg";
+import background from "../assets/images/LandingPage/landing_7.jpg";
 
 const SignUp = () => {
   const usernameRef = useRef(null);

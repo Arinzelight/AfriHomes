@@ -4,7 +4,7 @@ import { PulseLoader } from "react-spinners";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import background from "../assets/images/background.jpg";
+import background from "../assets/images/LandingPage/landing_7.jpg";
 import OAuth from "../components/OAuth";
 import {
   signInStart,
