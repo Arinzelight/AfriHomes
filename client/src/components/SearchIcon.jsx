@@ -1,4 +1,4 @@
-// client/src/components/SearchIcon.jsx
+// The search icon
 import React from 'react';
 
 const SearchIcon = ({ color = 'currentColor' }) => (
