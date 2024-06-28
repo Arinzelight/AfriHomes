@@ -22,7 +22,7 @@ const Hero = () => {
             environment, for you ...
           </p>
           <Link to="/sign-in">
-            <button className="hover:bg-green-600 text-white font-bold py-2 px-4 bg-purple-600 rounded-md">
+            <button className="hover:bg-purple-700 text-white  py-2 px-4 bg-purple-600 rounded-md">
               Get Started
             </button>
           </Link>

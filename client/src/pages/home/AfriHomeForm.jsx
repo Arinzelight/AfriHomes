@@ -2,7 +2,7 @@ import React from "react";
 
 const AfriHomeForm = () => {
   return (
-    <div className="flex  flex-col lg:flex-row items-center p-10 gap-10 mt-8 bg-gray-100">
+    <div className="flex  flex-col lg:flex-row items-center p-10 gap-10 mt-8 bg-purple-50">
       <div className="flex flex-col lg:w-1/2 w-full  mb-4">
         <h2 className="text-4xl font-bold mb-4">Talk to an AfriHomes Agent</h2>
         <p className="">
@@ -64,7 +64,7 @@ const AfriHomeForm = () => {
             ></textarea>
           </div>
           <button
-            className="w-full bg-purple-600 text-white p-2 rounded mt-4 hover:bg-white hover:border-2 hover:border-purple-600 hover:text-purple-600 font-bold transition duration-200"
+            className="w-full bg-purple-600 text-white p-2 rounded mt-4   hover:bg-purple-700   transition duration-200"
             type="submit"
           >
             Send

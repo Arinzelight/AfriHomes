@@ -6,6 +6,7 @@ import SignUp from "./pages/SignUp";
 import DashBoard from "./pages/DashBoard";
 import { Toaster } from "react-hot-toast";
 import NewPostPage from "./pages/NewPost";
+import SinglePage from "./pages/singlePage";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/new-post" element={<NewPostPage />} />
+        <Route path="/single-page" element={<SinglePage />} />
         <Route path="/dashboard" element={<DashBoard />} />
       </Routes>
     </BrowserRouter>

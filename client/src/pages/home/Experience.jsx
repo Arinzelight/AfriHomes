@@ -6,10 +6,10 @@ import commentIcon from "../../assets/icons/comment_icon.png";
 
 const Experience = () => {
   return (
-    <div className="flex flex-col mt-8">
+    <div className="flex flex-col mt-8 min-h-screen">
       {/* First row: Experience */}
       <div className="flex p-4 justify-center items-center h-1/4 text-experience">
-        <h1 className="text-4xl font-bold text-center">
+        <h1 className="text-3xl font-bold text-center">
           The AfriHomes Experience
         </h1>
       </div>

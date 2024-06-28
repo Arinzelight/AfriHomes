@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logo from "../assets/images/afrihome_logo.png";
 import SearchIcon from "../components/SearchIcon";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,18 +32,20 @@ const Header = () => {
 
         {/* Navigation */}
         <div className="hidden lg:flex space-x-4">
-          <a href="#" className="hover:text-yellow-500">
+          <Link to="/" className="hover:text-yellow-500">
             Buy
-          </a>
-          <a href="#" className="hover:text-yellow-500">
+          </Link>
+          <Link to="/new-post" className="hover:text-yellow-500">
             Sell
-          </a>
-          <a href="#" className="hover:text-yellow-500">
+          </Link>
+          <Link to="/new-post" className="hover:text-yellow-500">
             Rent
-          </a>
-          <button className=" bg-purple-600 text-white py-2 px-4 rounded-lg">
-            Join/Sign In
-          </button>
+          </Link>
+          <Link to="./sign-in">
+            <button className=" bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg">
+              Join/Sign In
+            </button>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -75,18 +78,20 @@ const Header = () => {
         {isMenuOpen && (
           <div className="lg:hidden absolute top-16 left-0 right-0 bg-white bg-opacity-80 shadow-md">
             <div className="flex flex-col items-center p-4 space-y-4">
-              <a href="#" className="text-black hover:text-yellow-500">
+              <Link to="/" className="text-black hover:text-yellow-500">
                 Buy
-              </a>
-              <a href="#" className="text-black hover:text-yellow-500">
+              </Link>
+              <Link to="/new-post" className="text-black hover:text-yellow-500">
                 Sell
-              </a>
-              <a href="#" className="text-black hover:text-yellow-500">
+              </Link>
+              <Link to="/new-post" className="text-black hover:text-yellow-500">
                 Rent
-              </a>
-              <button className="join-btn bg-purple-600 text-white py-2 px-4 rounded-lg">
-                Join/Sign In
-              </button>
+              </Link>
+              <Link to="/sign-in">
+                <button className="join-btn bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg">
+                  Join/Sign In
+                </button>
+              </Link>
             </div>
           </div>
         )}
