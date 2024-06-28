@@ -11,11 +11,11 @@ const Hero = () => {
     >
       <Header />
       <div className="absolute items-center p-6 top-[200px] lg:ml-[45px] ml-0">
-        <div className="bg-white bg-opacity-70 p-8 rounded-lg text-gray-800 max-w-lg text-center">
-          <h1 className="text-2xl mb-4">
+        <div className="bg-white bg-opacity-70 p-4 rounded-lg text-gray-800 max-w-lg text-center">
+          <h1 className="text-2xl px-4  mb-4">
             Discover Your Dream Home with AfriHomes
           </h1>
-          <p className="mb-8">
+          <p className="mb-3 sm:text-base text-sm">
             Find the best properties in Ghana and Nigeria. Whether you are
             looking to buy, sell, or rent, we have got you covered. AfriHomes is
             the best place to get your next rent in a safe way, in a safe

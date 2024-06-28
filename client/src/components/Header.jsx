@@ -8,13 +8,13 @@ const Header = () => {
 
   return (
     <div>
-      <header className="flex justify-between p-6">
+      <header className="flex justify-between p-6 ">
         {/* Logo */}
         <div className="flex items-center h-20 w-40 my-[-20px]">
           <img
             src={logo}
             alt="AfriHomes-logo"
-            className="h-40 w-40 object-contain ml-8"
+            className="h-40 w-40 object-contain "
           />
         </div>
 
@@ -25,6 +25,7 @@ const Header = () => {
             placeholder="City, Location, Address, School, ZIP Code"
             className="search pl-10 py-2 w-full border rounded-lg"
           />
+
           <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
             <SearchIcon color="gray" />
           </div>
@@ -41,7 +42,7 @@ const Header = () => {
           <Link to="/new-post" className="hover:text-yellow-500">
             Rent
           </Link>
-          <Link to="./sign-in">
+          <Link to="/sign-in">
             <button className=" bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg">
               Join/Sign In
             </button>
@@ -76,7 +77,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden absolute top-16 left-0 right-0 bg-white bg-opacity-80 shadow-md">
+          <div className="lg:hidden absolute top-16 left-0 right-0 bg-white opacity-90 z-50  shadow-md">
             <div className="flex flex-col items-center p-4 space-y-4">
               <Link to="/" className="text-black hover:text-yellow-500">
                 Buy
@@ -88,7 +89,7 @@ const Header = () => {
                 Rent
               </Link>
               <Link to="/sign-in">
-                <button className="join-btn bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg">
+                <button className="cursor-pointer join-btn bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg">
                   Join/Sign In
                 </button>
               </Link>
