@@ -242,7 +242,7 @@ function NewPostPage() {
           </form>
         </div>
       </div>
-      <div className="flex-2 bg-purple-100 md:w-[40%] w-full flex flex-col gap-5 items-center justify-center p-4 md:p-0">
+      <div className="flex-2 bg-gray-50 md:w-[40%] w-full flex flex-col gap-5 items-center justify-center p-4 md:p-0">
         {images.map((image, index) => (
           <img
             src={image}
