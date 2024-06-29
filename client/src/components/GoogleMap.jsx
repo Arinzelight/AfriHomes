@@ -9,7 +9,7 @@ const GoogleMap = () => {
         const loadGoogleMapsScript = () => {
           if(!window.google) {
             const script = document.createElement('script');
-            script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCogqfeDAT8vUQlfMIs4xZQc6N8bYvkdg4&callback=console.debug&libraries=maps,marker&v=beta`;
+            script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&callback=console.debug&libraries=maps,marker&v=beta`;
             script.defer = true;
             script.onload = () => {
               window.initMap();
