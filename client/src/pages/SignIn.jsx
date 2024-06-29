@@ -20,9 +20,10 @@ export default function SignIn() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const api = "http://localhost:5000/api/auth/signin";
+  const api = "/api/auth/signin"; // Use relative path assuming backend is served from same origin
 
   const passwordInputRef = useRef(null);
+
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
     const passwordInput = passwordInputRef.current;
@@ -96,7 +97,7 @@ export default function SignIn() {
       <div className="bg-white bg-opacity-75 rounded-lg shadow-md p-6 w-[370px] sm:mx-auto mx-5">
         <h6 className="text-3xl text-center font-semibold my-7">Sign In</h6>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 relative">
-          {/* display error message */}
+          {/* Display error message */}
           {errorMessage && (
             <p
               aria-live="assertive"
@@ -115,7 +116,7 @@ export default function SignIn() {
           />
           <div className="relative">
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               id="password"
               placeholder="Password"
               ref={passwordInputRef}
