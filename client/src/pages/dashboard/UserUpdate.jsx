@@ -60,7 +60,7 @@ const UserUpdate = () => {
                                             required 
                                         />
                                     ) : (
-                                        <p>{user.name}</p>
+                                        <p className="border border-gray-300 rounded p-2">{user.name}</p>
                                     )}
                                 </div>
                                 <div>
@@ -76,7 +76,7 @@ const UserUpdate = () => {
                                             required 
                                         />
                                     ) : (
-                                        <p>{user.email}</p>
+                                        <p className="border border-gray-300 rounded p-2">{user.email}</p>
                                     )}
                                 </div>
                                 <div>
@@ -92,7 +92,7 @@ const UserUpdate = () => {
                                             required 
                                         />
                                     ) : (
-                                        <p>{user.phone}</p>
+                                        <p className="border border-gray-300 rounded p-2">{user.phone}</p>
                                     )}
                                 </div>
                                 <div>
@@ -112,7 +112,7 @@ const UserUpdate = () => {
                                             <option value="Other">Other</option>
                                         </select>
                                     ) : (
-                                        <p>{user.gender}</p>
+                                        <p className="border border-gray-300 rounded p-2">{user.gender}</p>
                                     )}
                                 </div>
                                 <button 
