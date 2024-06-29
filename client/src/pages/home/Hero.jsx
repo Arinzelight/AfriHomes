@@ -21,7 +21,7 @@ const Hero = () => {
             the best place to get your next rent in a safe way, in a safe
             environment, for you ...
           </p>
-          <Link to="/sign-in">
+          <Link to="/search">
             <button className="hover:bg-purple-700 text-white  py-2 px-4 bg-purple-600 rounded-md">
               Get Started
             </button>

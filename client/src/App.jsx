@@ -4,6 +4,7 @@ import Home from "./pages/home/Home";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import DashBoard from "./pages/DashBoard";
+import Search from "./pages/Search";
 import { Toaster } from "react-hot-toast";
 import NewPostPage from "./pages/NewPost";
 import SinglePage from "./pages/singlePage";
@@ -23,6 +24,7 @@ export default function App() {
           <Route element={<PrivateRoute />}>
             <Route path="/single-page" element={<SinglePage />} />
             <Route path="/new-post" element={<NewPostPage />} />
+            <Route path="/search" element={<Search />} />
           </Route>
           <Route element={<OnlyAdminPrivateRoute />}>
             <Route path="/dashboard" element={<DashBoard />} />
