@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { PulseLoader } from "react-spinners";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import background from "../assets/images/LandingPage/landing_7.jpg";
@@ -19,7 +19,7 @@ export default function SignIn() {
   const { loading, error: errorMessage } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const location = useLocation();
   const passwordInputRef = useRef(null);
 
   const handleShowPassword = () => {
@@ -50,7 +50,9 @@ export default function SignIn() {
       if (res.status === 200 || res.status === 201) {
         dispatch(signInSuccess(res.data));
         toast.success("Login successful");
-        navigate("/");
+
+        const from = location.state?.from?.pathname || "/";
+        navigate(from, { replace: true });
       } else {
         dispatch(
           signInFailure(

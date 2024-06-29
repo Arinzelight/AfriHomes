@@ -21,10 +21,10 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/search" element={<Search />} />
           <Route element={<PrivateRoute />}>
             <Route path="/single-page" element={<SinglePage />} />
             <Route path="/new-post" element={<NewPostPage />} />
-            <Route path="/search" element={<Search />} />
           </Route>
           <Route element={<OnlyAdminPrivateRoute />}>
             <Route path="/dashboard" element={<DashBoard />} />
