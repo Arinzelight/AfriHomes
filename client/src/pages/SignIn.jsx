@@ -20,8 +20,6 @@ export default function SignIn() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const api = "/api/auth/signin"; // Use relative path assuming backend is served from same origin
-
   const passwordInputRef = useRef(null);
 
   const handleShowPassword = () => {
@@ -45,7 +43,7 @@ export default function SignIn() {
 
     try {
       dispatch(signInStart());
-      const res = await axios.post(api, formData, {
+      const res = await axios.post("/api/auth/signin", formData, {
         headers: { "Content-Type": "application/json" },
       });
 
@@ -149,10 +147,13 @@ export default function SignIn() {
               "Sign In"
             )}
           </button>
-          <h3 className="text-center">Or</h3>
-          {/* Login with Google */}
-          <OAuth />
         </form>
+        {/* Login with Google */}
+        <div className="w-full flex flex-col ">
+          <h3 className="text-center my-3">Or</h3>
+          <OAuth />
+        </div>
+
         <div className="flex gap-2 mt-5">
           <p>Don't have an account?</p>
           <Link to="/sign-up">

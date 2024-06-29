@@ -212,8 +212,12 @@ const SignUp = () => {
               "Sign Up"
             )}
           </button>
-          <OAuth />
         </form>
+        {/* Signup with Google */}
+        <div className="w-full flex flex-col ">
+          <h3 className="text-center my-3">Or</h3>
+          <OAuth />
+        </div>
         <div className="flex gap-2 mt-5">
           <p>Have an account?</p>
           <Link to={"/sign-in"}>
