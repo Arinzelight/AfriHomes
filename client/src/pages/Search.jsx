@@ -2,6 +2,7 @@ import React from "react";
 import { listData } from "../lib/data";
 import Filter from "../components/Filter";
 import Card from "../components/Card";
+import GoogleMapComponentSearch from "../components/GoogleMapSearch";
 
 function Search() {
   const data = listData;
@@ -16,7 +17,7 @@ function Search() {
           ))}
         </div>
       </div>
-      <div className="w-full lg:w-1/2 bg-gray-50 h-64 md:h-auto pb-2">Map</div>
+      <div className="w-full lg:w-1/2 bg-gray-50 h-64 md:h-full pb-2"><GoogleMapComponentSearch /></div>
     </div>
   );
 }

@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
+// var process = require('dotenv');
 
 // const API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
-const GoogleMapComponent = () => {
+const GoogleMapComponentSearch = () => {
     useEffect(() => {
         // Load the Google Maps script when the component mounts
         const loadGoogleMapsScript = () => {
@@ -33,9 +34,9 @@ const GoogleMapComponent = () => {
 
     return (
         <div>
-            <div id="map" style={{ height: '400px', width: '100%' }}></div>
+            <div id="map" style={{ height: '2100px', width: '100%' }}></div>
         </div>
     );
 };
 
-export default GoogleMapComponent;
+export default GoogleMapComponentSearch;

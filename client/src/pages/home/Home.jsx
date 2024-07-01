@@ -2,7 +2,7 @@ import React from "react";
 import Hero from "./Hero";
 import AboutUs from "./AboutUs";
 import Experience from "./Experience";
-// import GoogleMapComponent from "../../components/GoogleMap";
+import GoogleMapComponent from "../../components/GoogleMap";
 import DreamSpace from "./DreamSpace";
 import RecentUploads from "./RecentUploads";
 import AfriHomeForm from "./AfriHomeForm";
@@ -13,7 +13,7 @@ const Home = () => {
     <div>
       <Hero />
       <AboutUs />
-      {/* <GoogleMapComponent /> */}
+      <GoogleMapComponent />
       <Experience />
       <DreamSpace />
       <RecentUploads />

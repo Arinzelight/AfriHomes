@@ -19,6 +19,7 @@ import Chat from "../assets/post-icons/chat.png";
 import Save from "../assets/post-icons/save.png";
 import Bus from "../assets/post-icons/bus.png";
 import Restaurant from "../assets/post-icons/restaurant.png";
+import GoogleMapComponent from "../components/GoogleMap";
 
 function SinglePage() {
   // const post = useLoaderData();
@@ -154,8 +155,8 @@ function SinglePage() {
           </div>
           <p className="font-bold text-lg mb-2">Location</p>
           <div className="w-full h-48">
-            {/* <Map items={[post]} /> */}
-            map
+            {<Map items={[post]} />}
+            <GoogleMapComponent />
           </div>
           <div className="flex justify-between">
             <button className="px-5 py-5 flex items-center gap-2 bg-white border border-yellow-200 rounded cursor-pointer">
