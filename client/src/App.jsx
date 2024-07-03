@@ -6,6 +6,7 @@ import DashBoard from "./pages/dashboard/DashBoard";
 import Home from "./pages/home/Home";
 import UserUpdate from "./pages/dashboard/UserUpdate";
 import ErrorPage from "./pages/ErrorPage";
+import Search from "./pages/Search";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/dashboard" element={<DashBoard />} />
         <Route path="/userupdate" element={<UserUpdate />} />
         <Route path="/error" element={<ErrorPage />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
     </BrowserRouter>
   );
