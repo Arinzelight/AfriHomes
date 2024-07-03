@@ -11,6 +11,15 @@ const Header = () => {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isAvatarOpen, setIsAvatarOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState("");
+    const navigate = useNavigate();
+
+    const handleSearchSubmit = (e) => {
+        e.preventDefault();
+        if (searchQuery.trim()) {
+            navigate(`/search?query=${searchQuery}`);
+        }
+    };
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -40,16 +49,18 @@ const Header = () => {
                 </div>
 
                 {/* Search Bar */}
-                <div className={`relative ${isSearchOpen ? "flex" : "hidden lg:flex"} items-center lg:w-1/2 mx-12`}>
+                <form onSubmit={handleSearchSubmit} className={`relative ${isSearchOpen ? "flex" : "hidden lg:flex"} items-center w-full lg:w-1/2 mx-4`}>
                     <input
                         type="text"
                         placeholder="City, Location, Address, School, ZIP Code"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
                         className="search sm:pl-10 pl-6 py-2 w-full border rounded-lg sm:text-base text-xs text-black focus:outline-none"
                     />
-                    <div className="absolute inset-y-0 md:left-3 left-1 flex items-center pointer-events-none">
-                        <SearchIcon color="black" />
+                    <div className="absolute inset-y-0 sm:left-3 left-1 flex items-center pointer-events-none">
+                        <SearchIcon color="gray" />
                     </div>
-                </div>
+                </form>
 
                 {/* Navigation */}
                 <div className="hidden md:flex space-x-4">

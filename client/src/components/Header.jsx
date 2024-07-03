@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../images/afrihome_logo.png";
 import logoMobile from "../images/afrihome_logo_darktheme1.png";
 import SearchIcon from "../components/SearchIcon";
@@ -6,6 +7,15 @@ import SearchIcon from "../components/SearchIcon";
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState("");
+    const navigate = useNavigate();
+
+    const handleSearchSubmit = (e) => {
+        e.preventDefault();
+        if (searchQuery.trim()) {
+            navigate(`/search?query=${searchQuery}`);
+        }
+    };
 
     return (
         <div>
@@ -25,16 +35,18 @@ const Header = () => {
                 </div>
 
                 {/* Search Bar */}
-                <div className={`relative ${isSearchOpen ? "flex" : "hidden lg:flex"} items-center w-full lg:w-1/2 mx-4`}>
+                <form onSubmit={handleSearchSubmit} className={`relative ${isSearchOpen ? "flex" : "hidden lg:flex"} items-center w-full lg:w-1/2 mx-4`}>
                     <input
                         type="text"
                         placeholder="City, Location, Address, School, ZIP Code"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
                         className="search sm:pl-10 pl-6 py-2 w-full border rounded-lg sm:text-base text-xs text-black focus:outline-none"
                     />
                     <div className="absolute inset-y-0 sm:left-3 left-1 flex items-center pointer-events-none">
                         <SearchIcon color="gray" />
                     </div>
-                </div>
+                </form>
 
                 {/* Navigation */}
                 <div className="hidden lg:flex space-x-4">
