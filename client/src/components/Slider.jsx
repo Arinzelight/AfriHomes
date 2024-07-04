@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Arrow from "../assets/post-icons/arrow.png";
 
-function Slider({ images }) {
+function Slider({ images = [] }) {
   const [imageIndex, setImageIndex] = useState(null);
 
   const changeSlide = (direction) => {
@@ -11,6 +11,10 @@ function Slider({ images }) {
       setImageIndex(imageIndex === images.length - 1 ? 0 : imageIndex + 1);
     }
   };
+
+  if (!images.length) {
+    return <div>No images available</div>;
+  }
 
   return (
     <div className="w-full h-[350px] flex gap-5 sm:h-[280px] ">

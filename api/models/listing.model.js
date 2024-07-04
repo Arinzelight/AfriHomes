@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import mongoosePaginate from "mongoose-paginate-v2";
 
-const propertySchema = new mongoose.Schema(
+const listingSchema = new mongoose.Schema(
   {
     title: {
       type: String,
@@ -13,7 +13,7 @@ const propertySchema = new mongoose.Schema(
     },
     location: {
       type: String,
-      required: true,
+      required: false,
     },
     category: {
       type: String,
@@ -26,17 +26,17 @@ const propertySchema = new mongoose.Schema(
     },
     bedrooms: {
       type: Number,
-      required: true,
+      required: false,
     },
     bathrooms: {
       type: Number,
-      required: true,
-    },
-
-    street: {
-      type: String,
       required: false,
     },
+    parking: {
+      type: Number,
+      required: false,
+    },
+
     city: {
       type: String,
       required: true,
@@ -57,8 +57,7 @@ const propertySchema = new mongoose.Schema(
       type: Number,
       required: false,
     },
-
-    propertyType: {
+    property: {
       type: String,
       required: true,
       enum: [
@@ -89,13 +88,12 @@ const propertySchema = new mongoose.Schema(
         "Storage Unit",
       ],
     },
-
     petFriendly: {
       type: Boolean,
       required: false,
     },
-    floorNumber: {
-      type: Number,
+    furnished: {
+      type: Boolean,
       required: false,
     },
     contactName: {
@@ -128,21 +126,25 @@ const propertySchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    images: {
+    imageUrls: {
       type: [String],
       required: false,
-      default:
-        "https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2021/09/how-to-write-a-blog-post.png",
     },
     videos: {
       type: [String],
+      required: false,
+    },
+    createdBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
       required: false,
     },
   },
   { timestamps: true }
 );
 
-propertySchema.plugin(mongoosePaginate);
+listingSchema.plugin(mongoosePaginate);
 
-const Property = mongoose.model("Property", propertySchema);
-export default Property;
+const Listing = mongoose.model("Listing", listingSchema);
+
+export default Listing;

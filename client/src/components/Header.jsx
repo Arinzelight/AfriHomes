@@ -33,7 +33,7 @@ const Header = () => {
 
         {/* Navigation */}
         <div className="hidden lg:flex space-x-4">
-          <Link to="/" className="hover:text-yellow-500">
+          <Link to="/search" className="hover:text-yellow-500">
             Buy
           </Link>
           <Link to="/new-post" className="hover:text-yellow-500">
