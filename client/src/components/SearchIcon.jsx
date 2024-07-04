@@ -1,7 +1,7 @@
-// client/src/components/SearchIcon.jsx
-import React from 'react';
+// The search icon
+import React from "react";
 
-const SearchIcon = ({ color = 'currentColor' }) => (
+const SearchIcon = ({ color = "currentColor" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import logo from "../images/afrihome_logo.png";
 import logoMobile from "../images/afrihome_logo_darktheme1.png";
 import SearchIcon from "../components/SearchIcon";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -50,10 +51,20 @@ const Header = () => {
 
                 {/* Navigation */}
                 <div className="hidden lg:flex space-x-4">
-                    <a href="#" className="hover:text-yellow-500 lg:font-bold">Buy</a>
-                    <a href="#" className="hover:text-yellow-500 lg:font-bold">Sell</a>
-                    <a href="#" className="hover:text-yellow-500 lg:font-bold">Rent</a>
-                    <button className=" bg-purple-600 text-white py-2 px-4 rounded-lg">Join/Sign In</button>
+                  <Link to="/" className="hover:text-yellow-500">
+                    Buy
+                  </Link>
+                  <Link to="/new-post" className="hover:text-yellow-500">
+                    Sell
+                  </Link>
+                  <Link to="/new-post" className="hover:text-yellow-500">
+                    Rent
+                  </Link>
+                  <Link to="/sign-in">
+                    <button className=" bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg">
+                      Join/Sign In
+                    </button>
+                  </Link>
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -70,13 +81,23 @@ const Header = () => {
 
                 {/* Mobile Menu */}
                 {isMenuOpen && (
-                    <div className="lg:hidden absolute top-16 left-0 right-0 bg-white bg-opacity-80 shadow-md">
-                        <div className="flex flex-col items-center p-4 space-y-4">
-                            <a href="#" className="text-black hover:text-yellow-500">Buy</a>
-                            <a href="#" className="text-black hover:text-yellow-500">Sell</a>
-                            <a href="#" className="text-black hover:text-yellow-500">Rent</a>
-                            <button className="join-btn bg-purple-600 text-white py-2 px-4 rounded-lg">Join/Sign In</button>
-                        </div>
+                  <div className="lg:hidden absolute top-16 left-0 right-0 bg-white opacity-90 z-50  shadow-md">
+                    <div className="flex flex-col items-center p-4 space-y-4">
+                      <Link to="/" className="text-black hover:text-yellow-500">
+                        Buy
+                      </Link>
+                      <Link to="/new-post" className="text-black hover:text-yellow-500">
+                        Sell
+                      </Link>
+                      <Link to="/new-post" className="text-black hover:text-yellow-500">
+                        Rent
+                      </Link>
+                      <Link to="/sign-in">
+                        <button className="cursor-pointer join-btn bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg">
+                          Join/Sign In
+                        </button>
+                      </Link>
+                    </div>
                     </div>
                 )}
             </header>
