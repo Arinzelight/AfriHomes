@@ -9,7 +9,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import OAuth from "../components/OAuth";
 import { PulseLoader } from "react-spinners";
-import background from "../assets/images/background.jpg";
+import background from "../assets/images/LandingPage/landing_7.jpg";
 
 const SignUp = () => {
   const usernameRef = useRef(null);
@@ -84,13 +84,9 @@ const SignUp = () => {
     setErrorMessage({ general: "", email: "", password: "" });
 
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/auth/signup",
-        formData,
-        {
-          headers: { "Content-Type": "application/json" },
-        }
-      );
+      const response = await axios.post("/api/auth/signup", formData, {
+        headers: { "Content-Type": "application/json" },
+      });
 
       toast.success("Account created successfully");
       navigate("/sign-in");
@@ -216,8 +212,12 @@ const SignUp = () => {
               "Sign Up"
             )}
           </button>
-          <OAuth />
         </form>
+        {/* Signup with Google */}
+        <div className="w-full flex flex-col ">
+          <h3 className="text-center my-3">Or</h3>
+          <OAuth />
+        </div>
         <div className="flex gap-2 mt-5">
           <p>Have an account?</p>
           <Link to={"/sign-in"}>

@@ -1,7 +1,12 @@
 import React from 'react';
-import { listData } from '../lib/data';
+import { listData } from '../../lib/data';
 import Filter from '../components/Filter';
 import Card from '../components/Card';
+import { useLocation } from 'react-router-dom';
+
+const useQuery = () => {
+    return new URLSearchParams(useLocation().search);
+}
 
 function Search() {
   const data = listData;

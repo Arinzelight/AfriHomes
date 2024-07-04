@@ -1,10 +1,10 @@
 import React, { useRef, useState, useEffect } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { PulseLoader } from "react-spinners";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import background from "../assets/images/background.jpg";
+import background from "../assets/images/LandingPage/landing_7.jpg";
 import OAuth from "../components/OAuth";
 import {
   signInStart,
@@ -19,10 +19,9 @@ export default function SignIn() {
   const { loading, error: errorMessage } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const api = "http://localhost:5000/api/auth/signin";
-
+  const location = useLocation();
   const passwordInputRef = useRef(null);
+
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
     const passwordInput = passwordInputRef.current;
@@ -44,14 +43,16 @@ export default function SignIn() {
 
     try {
       dispatch(signInStart());
-      const res = await axios.post(api, formData, {
+      const res = await axios.post("/api/auth/signin", formData, {
         headers: { "Content-Type": "application/json" },
       });
 
       if (res.status === 200 || res.status === 201) {
         dispatch(signInSuccess(res.data));
         toast.success("Login successful");
-        navigate("/");
+
+        const from = location.state?.from?.pathname || "/";
+        navigate(from, { replace: true });
       } else {
         dispatch(
           signInFailure(
@@ -96,7 +97,7 @@ export default function SignIn() {
       <div className="bg-white bg-opacity-75 rounded-lg shadow-md p-6 w-[370px] sm:mx-auto mx-5">
         <h6 className="text-3xl text-center font-semibold my-7">Sign In</h6>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 relative">
-          {/* display error message */}
+          {/* Display error message */}
           {errorMessage && (
             <p
               aria-live="assertive"
@@ -115,7 +116,7 @@ export default function SignIn() {
           />
           <div className="relative">
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               id="password"
               placeholder="Password"
               ref={passwordInputRef}
@@ -148,10 +149,13 @@ export default function SignIn() {
               "Sign In"
             )}
           </button>
-          <h3 className="text-center">Or</h3>
-          {/* Login with Google */}
-          <OAuth />
         </form>
+        {/* Login with Google */}
+        <div className="w-full flex flex-col ">
+          <h3 className="text-center my-3">Or</h3>
+          <OAuth />
+        </div>
+
         <div className="flex gap-2 mt-5">
           <p>Don't have an account?</p>
           <Link to="/sign-up">
