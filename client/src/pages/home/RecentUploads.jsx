@@ -11,6 +11,7 @@ const RecentUploads = () => {
         const fetchListings = async () => {
             try {
                 const response = await axios.get('/api/listing');
+                console.log(response.data);
                 const listingsData = Array.isArray(response.data) ? response.data.slice(0, 3) : [];
                 setListings(listingsData);
             } catch (error) {
