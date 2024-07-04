@@ -1,11 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../assets/images/afrihome_logo.png";
 import SearchIcon from "../components/SearchIcon";
 import { Link } from "react-router-dom";
+import { getAuth, onAuthStateChanged } from "firebase/auth"; // Assuming you're using Firebase for authentication
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userAvatar, setUserAvatar] = useState("");
+
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsAuthenticated(true);
+        setUserAvatar(user.photoURL); // Assuming user has a photoURL property
+      } else {
+        setIsAuthenticated(false);
+        setUserAvatar("");
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter" && searchQuery.trim() !== "") {
@@ -16,14 +34,16 @@ const Header = () => {
 
   return (
     <div>
-      <header className="flex justify-between p-6">
+      <header className="flex justify-between p-6 mb-5">
         {/* Logo */}
         <div className="flex items-center h-20 w-40 my-[-20px]">
-          <img
-            src={logo}
-            alt="AfriHomes-logo"
-            className="h-40 w-40 object-contain"
-          />
+          <Link to="/">
+            <img
+              src={logo}
+              alt="AfriHomes-logo"
+              className="h-40 w-40 object-contain"
+            />
+          </Link>
         </div>
 
         {/* Search Bar */}
@@ -43,7 +63,7 @@ const Header = () => {
         </div>
 
         {/* Navigation */}
-        <div className="hidden lg:flex space-x-4">
+        <div className="hidden lg:flex space-x-4 items-center">
           <Link to="/search" className="hover:text-yellow-500">
             Buy
           </Link>
@@ -53,11 +73,19 @@ const Header = () => {
           <Link to="/new-post" className="hover:text-yellow-500">
             Rent
           </Link>
-          <Link to="/sign-in">
-            <button className=" bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg">
-              Join/Sign In
-            </button>
-          </Link>
+          {isAuthenticated ? (
+            <img
+              src={userAvatar || "default-avatar.png"} // Use a default avatar if user doesn't have one
+              alt="User Avatar"
+              className="w-10 h-10 rounded-full"
+            />
+          ) : (
+            <Link to="/sign-in">
+              <button className=" bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg">
+                Join/Sign In
+              </button>
+            </Link>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -99,11 +127,19 @@ const Header = () => {
               <Link to="/new-post" className="text-black hover:text-yellow-500">
                 Rent
               </Link>
-              <Link to="/sign-in">
-                <button className="cursor-pointer join-btn bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg">
-                  Join/Sign In
-                </button>
-              </Link>
+              {isAuthenticated ? (
+                <img
+                  src={userAvatar || "default-avatar.png"} // Use a default avatar if user doesn't have one
+                  alt="User Avatar"
+                  className="w-10 h-10 rounded-full"
+                />
+              ) : (
+                <Link to="/sign-in">
+                  <button className="cursor-pointer join-btn bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg">
+                    Join/Sign In
+                  </button>
+                </Link>
+              )}
             </div>
           </div>
         )}

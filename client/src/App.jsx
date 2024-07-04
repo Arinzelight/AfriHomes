@@ -11,6 +11,7 @@ import SinglePage from "./pages/singlePage";
 import PrivateRoute from "./components/PrivateRoute";
 import OnlyAdminPrivateRoute from "./components/OnlyAdminPrivateRoute";
 import Loading from "./components/loading";
+import Layout from "./components/Layout";
 
 export default function App() {
   return (
@@ -19,15 +20,17 @@ export default function App() {
         <Toaster />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/single-page/:id" element={<SinglePage />} />
-          <Route path="/search" element={<Search />} />
-          <Route element={<PrivateRoute />}>
-            <Route path="/new-post" element={<NewPostPage />} />
-          </Route>
-          <Route element={<OnlyAdminPrivateRoute />}>
-            <Route path="/dashboard" element={<DashBoard />} />
+          <Route element={<Layout />}>
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/sign-in" element={<SignIn />} />
+            <Route path="/single-page/:id" element={<SinglePage />} />
+            <Route path="/search" element={<Search />} />
+            <Route element={<PrivateRoute />}>
+              <Route path="/new-post" element={<NewPostPage />} />
+            </Route>
+            <Route element={<OnlyAdminPrivateRoute />}>
+              <Route path="/dashboard" element={<DashBoard />} />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>

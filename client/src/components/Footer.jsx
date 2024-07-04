@@ -4,7 +4,7 @@ import logo from "../assets/images/afrihome_logo.png";
 export default function Footer() {
   return (
     <>
-      <div className="flex sm:flex-row flex-col gap-6 mx-10 justify-between items-center">
+      <div className="flex sm:flex-row flex-col gap-6 mx-10 justify-between items-center mt-[5rem]">
         <div className=" h-40 w-40 ">
           <img src={logo} alt="AfriHomes Logo" className="h-full w-full" />
         </div>
