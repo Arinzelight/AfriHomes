@@ -17,6 +17,7 @@ const truncateText = (text, wordLimit) => {
 
 const RecentUploads = () => {
   const [listings, setListings] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(6);
 
   useEffect(() => {
     const fetchListings = async () => {
@@ -38,20 +39,29 @@ const RecentUploads = () => {
     fetchListings();
   }, []);
 
+  const handleShowMore = () => {
+    setVisibleCount((prevCount) => Math.min(prevCount + 10, listings.length));
+  };
+
   return (
     <div className="flex flex-col p-8 mt-8">
       {/* First row: Recent Uploads header */}
       <div className="flex flex-col items-start justify-center h-1/5 mb-8">
         <h1 className="text-4xl font-bold">Recent Uploads</h1>
-        <p className="text-purple-600 cursor-pointer underline italic">
-          Show more...
-        </p>
+        {visibleCount < listings.length && (
+          <p
+            className="text-purple-600 cursor-pointer underline italic"
+            onClick={handleShowMore}
+          >
+            Show more...
+          </p>
+        )}
       </div>
 
       {/* Second row: Recent Uploads images */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {listings.length > 0 ? (
-          listings.map((listing) => (
+          listings.slice(0, visibleCount).map((listing) => (
             <Link
               key={listing._id}
               to={`/single-page/${listing._id}`} // Redirect to single page with listing ID

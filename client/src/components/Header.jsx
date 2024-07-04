@@ -91,11 +91,13 @@ const Header = () => {
         {/* Mobile Menu Button */}
         <div className="lg:hidden flex items-center">
           <div className="mx-10">
-            <SearchIcon color="white" />
+            <Link to="/search">
+              <SearchIcon color="black" />
+            </Link>
           </div>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-white focus:outline-none"
+            className=" focus:outline-none"
           >
             <svg
               className="w-6 h-6"
