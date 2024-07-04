@@ -4,17 +4,25 @@ import SearchIcon from "../components/SearchIcon";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter" && searchQuery.trim() !== "") {
+      // Redirect to search page with query parameter
+      window.location.href = `/search?query=${encodeURIComponent(searchQuery)}`;
+    }
+  };
 
   return (
     <div>
-      <header className="flex justify-between p-6 ">
+      <header className="flex justify-between p-6">
         {/* Logo */}
         <div className="flex items-center h-20 w-40 my-[-20px]">
           <img
             src={logo}
             alt="AfriHomes-logo"
-            className="h-40 w-40 object-contain "
+            className="h-40 w-40 object-contain"
           />
         </div>
 
@@ -23,7 +31,10 @@ const Header = () => {
           <input
             type="text"
             placeholder="City, Location, Address, School, ZIP Code"
-            className="search pl-10 py-2 w-full border rounded-lg"
+            className="search text-black pl-10 py-2 w-full border rounded-lg"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyPress={handleKeyPress}
           />
 
           <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
