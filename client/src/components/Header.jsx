@@ -59,7 +59,7 @@ const Header = () => {
         </div>
 
         {/* Navigation */}
-        <div className=" flex  items-center gap-3 ">
+        <div className=" flex  items-center gap-4 ">
           <Link to="./search " className="sm:hidden visible h-3">
             <SearchIcon color="purple" />
           </Link>
