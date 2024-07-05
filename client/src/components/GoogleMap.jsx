@@ -3,23 +3,18 @@ import { GoogleMap, LoadScript } from "@react-google-maps/api";
 
 const containerStyle = {
   width: "100%",
-  height: "100%",
-};
-
-const center = {
-  lat: 10.8231, // Default latitude (e.g., Abuja, Nigeria)
-  lng: 7.491302, // Default longitude (e.g., Abuja, Nigeria)
+  height: "400px", // Adjust height as needed
 };
 
 const GoogleMapComponent = ({ latitude, longitude }) => {
   const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY; // Access the API key from the .env file
 
   return (
-    <LoadScript googleMapsApiKey={apiKey}>
+    <LoadScript googleMapsApiKey={apiKey} libraries={["places"]}>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={{ lat: latitude, lng: longitude }}
-        zoom={10}
+        zoom={12} // Adjust zoom level as needed
       >
         {/* Child components, such as markers, info windows, etc. */}
         <></>

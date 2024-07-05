@@ -1,10 +1,11 @@
 import React from "react";
 import logo from "../../assets/images/afrihome_logo.png";
 import { Link } from "react-router-dom";
+import GoogleMapComponent from "../../components/GoogleMap"; // Import GoogleMapComponent
 
 const AboutUs = () => {
   return (
-    <div className="px-10 py-12 ">
+    <div className="sm:px-10 sm-px-0 py-12">
       {/* First row: About Us header */}
       <div className="m-10">
         <h1 className="text-3xl font-bold text-center">About Us</h1>
@@ -23,11 +24,16 @@ const AboutUs = () => {
           <div className="grid justify-items-center mb-8">
             <Link to="./sign-in">
               {" "}
-              <button className=" text-white  bg-purple-600 hover:bg-purple-700 py-2 px-4 rounded-lg">
+              {/* <button className=" text-white  bg-purple-600 hover:bg-purple-700 py-2 px-4 rounded-lg">
                 Join / Sign In
-              </button>
+              </button> */}
             </Link>
           </div>
+          {/* Render GoogleMapComponent with default coordinates */}
+          <GoogleMapComponent
+            latitude={6.5244} // Default latitude for Lagos
+            longitude={3.3792} // Default longitude for Lagos
+          />
         </div>
       </div>
     </div>
