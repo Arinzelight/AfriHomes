@@ -169,7 +169,7 @@ function SinglePage() {
             </div>
           </div>
           <p className="font-bold text-lg mb-2">Location</p>
-          <div className="w-full h-48">
+          <div className="w-full min-[48]">
             <GoogleMapComponent
               latitude={listing?.latitude}
               longitude={listing?.longitude}
