@@ -1,8 +1,9 @@
-import Slider from "../components/Slider";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import DOMPurify from "dompurify";
-import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import DOMPurify from "dompurify";
+import Slider from "../components/Slider";
+import GoogleMapComponent from "../components/GoogleMap"; // Import the GoogleMapComponent
 import Image from "../assets/images/LandingPage/landing_7.jpg";
 import Ping from "../assets/post-icons/pin.png";
 import Utility from "../assets/post-icons/utility.png";
@@ -29,10 +30,8 @@ function SinglePage() {
     const fetchListing = async () => {
       try {
         setLoading(true);
-        console.log("Fetching listing with id:", id); // Debug log
         const res = await fetch(`/api/listing/${id}`);
         const data = await res.json();
-        console.log("Response data:", data); // Debug log
         if (!res.ok) {
           setError(true);
           setLoading(false);
@@ -42,7 +41,6 @@ function SinglePage() {
         setLoading(false);
         setError(false);
       } catch (error) {
-        console.error("Fetch error:", error); // Debug log
         setError(true);
         setLoading(false);
       }
@@ -172,8 +170,10 @@ function SinglePage() {
           </div>
           <p className="font-bold text-lg mb-2">Location</p>
           <div className="w-full h-48">
-            {/* <Map items={[listing]} /> */}
-            map
+            <GoogleMapComponent
+              latitude={listing?.latitude}
+              longitude={listing?.longitude}
+            />
           </div>
           <div className="flex justify-between">
             <button className="px-5 py-5 flex items-center gap-2 bg-white border border-yellow-200 rounded cursor-pointer">

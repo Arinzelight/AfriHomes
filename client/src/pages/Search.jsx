@@ -1,8 +1,10 @@
+// Search.jsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Filter from "../components/Filter";
 import Card from "../components/Card";
 import Pagination from "../components/Pagination";
+import GoogleMapComponent from "../components/GoogleMap"; // Import the map component
 import { css } from "@emotion/react"; // Import css function from emotion
 import { ClipLoader } from "react-spinners"; // Import ClipLoader spinner
 
@@ -83,6 +85,12 @@ function Search() {
     fetchData(); // Refetch data without filters
   };
 
+  // Default map center coordinates
+  const defaultCenter = {
+    lat: 10.8231, // Default latitude
+    lng: 7.491302, // Default longitude
+  };
+
   return (
     <div className="flex flex-col lg:flex-row bg-white h-full md:px-10 px-2">
       <div className="w-full lg:w-1/2 p-4">
@@ -120,6 +128,10 @@ function Search() {
         >
           Reset Filters
         </button>
+        <GoogleMapComponent
+          latitude={defaultCenter.lat}
+          longitude={defaultCenter.lng}
+        />
       </div>
     </div>
   );
