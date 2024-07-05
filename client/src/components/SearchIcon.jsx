@@ -8,7 +8,7 @@ const SearchIcon = ({ color = "currentColor" }) => (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke={color}
-    className="w-5 h-5"
+    className="sm:w-4 sm:h-4 w-2 h-2"
   >
     <path
       strokeLinecap="round"

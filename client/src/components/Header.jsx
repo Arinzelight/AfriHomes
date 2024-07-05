@@ -8,17 +8,12 @@ import Avatar from "react-avatar"; // Import Avatar component from react-avatar
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const currentUser = useSelector((state) => state.user.currentUser);
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    // Dispatch the signoutSuccess action to update Redux state
     dispatch(signoutSuccess());
-    // Perform additional logout actions (e.g., clear local storage, redirect user)
-    // Example:
-    // localStorage.removeItem("authToken");
-    // history.push("/signin"); // Redirect to sign-in page
   };
 
   const handleKeyPress = (e) => {
@@ -41,7 +36,6 @@ const Header = () => {
             />
           </Link>
         </div>
-
         {/* Search Bar */}
         <div className="hidden lg:flex items-center w-1/2 mx-4 relative">
           <input
@@ -57,10 +51,12 @@ const Header = () => {
             <SearchIcon color="gray" />
           </div>
         </div>
-
         {/* Navigation */}
-        <div className=" flex  items-center gap-3 ">
-          <Link to="./search " className="sm:hidden visible h-3">
+        <div className=" flex  items-center sm:gap-3 gap-2">
+          <Link
+            to="./search "
+            className="md:hidden visible  bg-purple-50 sm:p-2 p-[0.4rem] rounded-full hover:bg-purple-100"
+          >
             <SearchIcon color="purple" />
           </Link>
           <Link to="/search" className="hover:text-yellow-500">
