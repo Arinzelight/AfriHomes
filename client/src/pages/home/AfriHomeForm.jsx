@@ -60,7 +60,7 @@ const AfriHomeForm = () => {
         templateId,
         {
           user_email: email,
-          user_message: message,
+          message: message,
           user_phone: phone,
           user_location: location,
         },
