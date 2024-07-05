@@ -30,7 +30,7 @@ const Header = () => {
 
   return (
     <div>
-      <header className="flex justify-between p-6 mb-5">
+      <header className="flex justify-between px-5 py-6 mb-5">
         {/* Logo */}
         <div className="flex items-center w-[5.5rem] h-20 sm:w-40 my-[-20px]">
           <Link to="/">
@@ -59,7 +59,7 @@ const Header = () => {
         </div>
 
         {/* Navigation */}
-        <div className=" flex  items-center gap-4 ">
+        <div className=" flex  items-center gap-3 ">
           <Link to="./search " className="sm:hidden visible h-3">
             <SearchIcon color="purple" />
           </Link>
@@ -83,7 +83,7 @@ const Header = () => {
                     size="40"
                     round={true}
                     name={currentUser.displayName || "User"}
-                    src={currentUser.photoURL}
+                    src={currentUser.profilePicture}
                     alt="User Avatar"
                     className="cursor-pointer"
                   />
@@ -108,8 +108,8 @@ const Header = () => {
             </div>
           ) : (
             <Link to="/sign-in">
-              <button className=" bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg">
-                Join/Sign In
+              <button className=" bg-purple-600 hover:bg-purple-700 text-white py-1 sm:py-2 sm:px-4 px-3 rounded-lg">
+                SignIn
               </button>
             </Link>
           )}
