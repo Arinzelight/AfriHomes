@@ -1,21 +1,19 @@
 import React from "react";
-import Header from "./dashboard/Header";
-import Footer from "../components/Footer";
-import error_1 from "../images/error/error_1.png";
-import error_2 from "../images/error/error_2.png";
+
+// import error_1 from "../images/error/error_1.png";
+// import error_2 from "../images/error/error_2.png";
 
 const ErrorPage = () => {
   return (
     <div>
-      <Header />
       <div className="relative flex sm:flex-row flex-col sm:pl-0 pl-[10px]">
         <img
-          src={error_1}
+          // src={error_1}
           alt="error"
           className="sm:h-[450px] h-[350px] sm:w-[450px] w-[350px] mt-[-20px] sm:ml-[40px]"
         />
         <img
-          src={error_2}
+          // src={error_2}
           alt="error"
           className="sm:h-[450px] h-[350px] sm:w-[450px] w-[350px] sm:mt-[-20px] mt-[-100px] sm:ml-[-40px]"
         />
@@ -33,7 +31,6 @@ const ErrorPage = () => {
           </button>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

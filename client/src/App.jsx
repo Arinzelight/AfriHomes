@@ -12,6 +12,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import OnlyAdminPrivateRoute from "./components/OnlyAdminPrivateRoute";
 import Loading from "./components/loading";
 import Layout from "./components/Layout";
+import ErrorPage from "./pages/ErrorPage";
 
 export default function App() {
   return (
@@ -32,6 +33,8 @@ export default function App() {
               <Route path="/dashboard" element={<DashBoard />} />
             </Route>
           </Route>
+          {/* Add the 404 route at the end */}
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
     </Suspense>
