@@ -3,7 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import DashBoard from "./pages/DashBoard";
+import DashBoard from "./pages/dashboard/DashBoard";
+import UserUpdate from "./pages/dashboard/UserUpdate";
 import Search from "./pages/Search";
 import { Toaster } from "react-hot-toast";
 import NewPostPage from "./pages/NewPost";
@@ -34,7 +35,8 @@ export default function App() {
             </Route>
           </Route>
           {/* Add the 404 route at the end */}
-          <Route path="*" element={<ErrorPage />} />
+          <Route path="/error" element={<ErrorPage />} />
+          <Route path="/userupdate" element={<UserUpdate />} />
         </Routes>
       </BrowserRouter>
     </Suspense>
