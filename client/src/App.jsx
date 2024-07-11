@@ -13,6 +13,7 @@ import OnlyAdminPrivateRoute from "./components/OnlyAdminPrivateRoute";
 import Loading from "./components/loading";
 import Layout from "./components/Layout";
 import ErrorPage from "./pages/ErrorPage";
+import ProfilePage from "./pages/ProfilePage";
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
             <Route path="/search" element={<Search />} />
             <Route element={<PrivateRoute />}>
               <Route path="/new-post" element={<NewPostPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
             </Route>
             <Route element={<OnlyAdminPrivateRoute />}>
               <Route path="/dashboard" element={<DashBoard />} />
